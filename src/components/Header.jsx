@@ -19,7 +19,6 @@ const Header = () => {
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-            {/* 5.5. Renderizado condicional */}
             {!user ? (
               <li className="navbar-item">
                 <Link to="/login" className="nav-link">
@@ -36,7 +35,6 @@ const Header = () => {
 
           </ul>
 
-          {/* 5.6. Botón de Logout condicional */}
           {user && (
             <button className="btn btn-danger" onClick={handleLogout}>
               Logout

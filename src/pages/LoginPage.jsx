@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-// Asegúrate que esta ruta sea correcta para tu proyecto:
 import { UserContext } from "../context/UserContext.jsx"; 
 import { useNavigate } from "react-router-dom";
 
@@ -8,9 +7,9 @@ const LoginPage = () => {
   const navigate = useNavigate(); 
   const { setUser } = useContext(UserContext); 
 
-  // Estados locales con datos de prueba
+  // Estados locales 
   const [email, setEmail] = useState("eve.holt@reqres.in");
-  const [password, setPassword] = useState("cityslicka"); // La API acepta cualquier pass
+  const [password, setPassword] = useState("prueba"); 
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -18,34 +17,30 @@ const LoginPage = () => {
     setError(null); 
 
     try {
-      // --- INICIO DE LA CORRECCIÓN ---
 
-      // 1. Define la API Key
+      // API Key
       const apiKey = "reqres-free-v1"; //
 
-      // 2. Define el body (los datos que envías)
+      // Define el body
       const body = {
         email: email,
         password: password,
       };
 
-      // 3. Define la configuración de los headers
+      //configuración de los headers
       const config = {
         headers: {
           'x-api-key': apiKey //
         }
       };
 
-      // 4. Llama a la API enviando el body y la config
       const response = await axios.post(
         "https://reqres.in/api/login", 
         body, 
         config
       );
       
-      // --- FIN DE LA CORRECCIÓN ---
 
-      // Si la API responde OK, guardar el usuario en el contexto
       setUser({
         email: email,
         token: response.data.token,
@@ -57,7 +52,7 @@ const LoginPage = () => {
     } catch (error) {
       console.error("Error en el login:", error);
       
-      // Manejo de errores mejorado
+      // Manejo de errores 
       if (error.response && error.response.data && error.response.data.error) {
         setError(`Error de la API: ${error.response.data.error}`);
       } else {
