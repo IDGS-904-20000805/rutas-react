@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AppRouter from "./routes/AppRouter";
-import { UserContext } from "./contexts/UserContext";
-
+import { UserContext } from "./context/UserContext.jsx";
 const App = () => {
   const [user, setUser] = useState(null);
 

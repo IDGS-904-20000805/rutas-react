@@ -1,7 +1,7 @@
 // src/pages/ProfilePage.jsx
 import React, { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
-import { Navigate } from "react-router-dom"; // Importa Navigate
+import { UserContext } from "../context/UserContext.jsx";
+import { Navigate } from "react-router-dom"; 
 
 const ProfilePage = () => {
   // 5.1. Leemos el contexto
