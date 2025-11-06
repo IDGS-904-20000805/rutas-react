@@ -1,16 +1,15 @@
-// src/components/Header.jsx
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../contexts/UserContext"; // Importa el contexto
+import { UserContext } from "../context/UserContext.jsx";
 
 const Header = () => {
-  // 5.4. Leemos el contexto
+  
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUser(null); // Limpia el estado global
-    navigate("/login"); // Manda al login
+    setUser(null); 
+    navigate("/login");
   };
 
   return (

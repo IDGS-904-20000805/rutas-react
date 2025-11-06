@@ -1,19 +1,15 @@
-// src/pages/ProfilePage.jsx
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext.jsx";
 import { Navigate } from "react-router-dom"; 
 
 const ProfilePage = () => {
-  // 5.1. Leemos el contexto
   const { user } = useContext(UserContext);
 
-  // 5.2. Si el usuario NO está logueado (user es null)
   if (!user) {
-    // Redirigimos al login
     return <Navigate to="/login" />;
   }
 
-  // 5.3. Si el usuario SÍ está logueado
+  // Si el usuario está logueado
   return (
     <div className="container text-center mt-5">
       <h1>Profile Page</h1>
